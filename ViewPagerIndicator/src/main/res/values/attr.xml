@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="columnSun" format="integer"></attr>
+        <attr name="indicatorColor" format="color"></attr>
+        <attr name="tabCheckColor" format="color"></attr>
+        <attr name="tabUnCheckColor" format="color"></attr>
+    </declare-styleable>
+</resources>
