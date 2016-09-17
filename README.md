@@ -34,9 +34,9 @@
             }
         });
 		
-		注意 ：   mIndicator.setCurrent(3); 是在设置adapter之后才起作用 
+##注意 ：   mIndicator.setCurrent(3); 是在设置adapter之后才起作用 ##
 		
-		#还可以监听 viewpage滑动的状态#
+##还可以监听 viewpage滑动的状态##
 		        mIndicator.addIndicatorChangeListener(new ViewPagerIndicator.OnIndicatorChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
