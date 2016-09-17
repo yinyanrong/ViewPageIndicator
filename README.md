@@ -1,7 +1,8 @@
 # ViewPageIndicator
 自定义的ViewPageIndicator 实现了Indicator 的滑动与viewpage的绑定
 
-
+##效果图##
+![image](https://github.com/yinyanrong/ViewPageIndicator/blob/master/img/20160912232216543.gif)
 #使用方式 #
 #Xml中引用#
     <com.yyr.custom.view.ViewPagerIndicator
