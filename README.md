@@ -8,11 +8,20 @@
        android:layout_height="wrap_content"
        android:paddingBottom="10dip"
        android:paddingTop="10dip"
+	    yyr:columnSun="6"//当前的所显示的行数
+        yyr:tabCheckColor="#ff66ff"//tab选中的颜色
+        yyr:tabUnCheckColor="#999999"//tab未选中的颜色
+        yyr:indicatorColor="#dd5500"//指示器的颜色
     >
     </com.yyr.custom.view.ViewPagerIndicator>
+	
+	
+	  
+	
+	
 #代码中使用#
         mIndicator.setViewPager(mViewPage);
-        mIndicator.setTabTitle(mTextList,0);
+        mIndicator.setTabTitle(mTextList);//设置tab
         mViewPage.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -24,7 +33,11 @@
                 return fragmentsList.size();
             }
         });
-        mIndicator.addIndicatorChangeListener(new ViewPagerIndicator.OnIndicatorChangeListener() {
+		
+		注意 ：   mIndicator.setCurrent(3); 是在设置adapter之后才起作用 
+		
+		#还可以监听 viewpage滑动的状态#
+		        mIndicator.addIndicatorChangeListener(new ViewPagerIndicator.OnIndicatorChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -37,3 +50,7 @@
             public void onPageScrollStateChanged(int state) {
             }
         });
+		
+		
+		
+		

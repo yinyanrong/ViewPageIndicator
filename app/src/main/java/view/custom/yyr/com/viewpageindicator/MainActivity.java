@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPage = (ViewPager) findViewById(R.id.container);
         initDatas();
         mIndicator.setViewPager(mViewPage);
-        mIndicator.setTabTitle(mTextList,3);
+        mIndicator.setTabTitle(mTextList);
         mViewPage.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 return fragmentsList.size();
             }
         });
+        mIndicator.setCurrent(3);
         mIndicator.addIndicatorChangeListener(new ViewPagerIndicator.OnIndicatorChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -48,11 +49,13 @@ public class MainActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
+
     }
 
     private void initDatas() {
         for(int i=0;i<14;i++) {
             mTextList.add("测试--->" + i);
+
         }
         for (String tx: mTextList){
             Fragment  fragment=SimpleFragment.newInstance(tx);

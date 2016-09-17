@@ -95,8 +95,13 @@ public class ViewPagerIndicator extends LinearLayout {
             }
             @Override
             public void onPageSelected(int position) {
+                Log.e("TEST","onPageSelected");
                TextView  textView= viewMap.get(true);
-                textView.setTextColor(mTabUnCheckColor);
+                //第一次的时候为null
+                if(textView!=null){
+                    textView.setTextColor(mTabUnCheckColor);
+
+                }
                 TextView  textView1=(TextView) getChildAt(position);
                 textView1.setTextColor(mTabCheckColor);
                 viewMap.put(true,textView1);
@@ -114,7 +119,7 @@ public class ViewPagerIndicator extends LinearLayout {
         });
 
     }
-    public void   setTabTitle(List<String> tabList,int currentPage){
+    public void   setTabTitle(List<String> tabList){
         mChildCount=tabList.size();
         for(int  i =0;i<tabList.size();i++){
             final int j=i;
@@ -127,7 +132,9 @@ public class ViewPagerIndicator extends LinearLayout {
             });
             addView(textView);
         }
-        this.mViewPager.setCurrentItem(currentPage);
+    }
+    public void  setCurrent(int  currentPage){
+        mViewPager.setCurrentItem(currentPage);
         viewMap.put(true,(TextView) getChildAt(currentPage));
     }
 
