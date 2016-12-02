@@ -25,10 +25,10 @@ public class TabActivitySimple extends AppCompatActivity {
         mTabLayout.setSelectedTabIndicatorColor(Color.BLACK);
         mTabLayout.setTabTextColors(Color.GRAY,Color.RED);
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-
         ViewPager   viewPager=(ViewPager) findViewById(R.id.viewpage);
-        viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager()));
         mTabLayout.setupWithViewPager(viewPager);
+        viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager()));
+
     }
       class  MyFragmentPagerAdapter  extends  FragmentPagerAdapter{
          ArrayList<String> mTextList = new ArrayList<String>();
@@ -48,12 +48,13 @@ public class TabActivitySimple extends AppCompatActivity {
         public int getCount() {
             return mFragmentsList.size();
         }
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mTextList.get(position);//页卡标题
-        }
+//        @Override
+//        public CharSequence getPageTitle(int position) {
+//            return mTextList.get(position);//页卡标题
+//        }
         private void initDatas() {
             for(int i=0;i<14;i++) {
+                mTabLayout.addTab(mTabLayout.newTab().setText("测试--->" + i),i);
                 mTextList.add("测试--->" + i);
                 Fragment  fragment=SimpleFragment.newInstance("测试--->" + i);
                 mFragmentsList.add(fragment);
